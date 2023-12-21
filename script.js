@@ -70,39 +70,3 @@ pilihan.forEach(function(pil) {
         scoring()
     })
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var tanya = true
-// while ( tanya ) {
-//     // 1. menangkap pilihan player
-//     var p = prompt ('pilih : batu, gunting, kertas');
-//     var w = 'Kamu menang! Sugoiii'
-//     var l = 'Kamu kalah! haha'
-//     // 2. menangkap pilihan komputer
-//     // 3. membangkitkan bilangan random 
-
-//     // 4. menentukan rules 
-//     // 5. menampilkan hasil
-//     alert ('kamu memilih : ' + p + ' dan komputer memilih : '+ comp + '\nmaka hasilnya : ' + hasil );
-
-//     tanya = confirm ('main lagi?'); 
-// }
-
-// alert ('arigatoo sudah bermain')
