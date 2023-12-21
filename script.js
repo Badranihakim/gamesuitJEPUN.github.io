@@ -5,11 +5,14 @@ function getPilihanComputer() {
     return 'gunting';
 }
 
+const w = 'MENANG!'
+const l = 'KALAH!'
+
 function getHasil(comp,player) {
     if (player == comp) return 'SERI!';
-    if (player == 'batu') return (comp=='gunting') ? 'MENANG!' : 'KALAH!' ;
-    if (player == 'gunting') return (comp=='batu') ? 'KALAH!' : 'MENANG!' ;
-    if (player == 'kertas') return (comp=='gunting') ? 'KALAH!' : 'MENANG!' ;
+    if (player == 'batu') return (comp=='gunting') ? w : l ;
+    if (player == 'gunting') return (comp=='batu') ? l : w ;
+    if (player == 'kertas') return (comp=='gunting') ? l : w ;
 }
 
 function putar() {
@@ -33,24 +36,6 @@ let initSkorPlayer = 0
 let skorComputer = document.querySelector('.skor-computer')
 let skorPlayer = document.querySelector('.skor-player')
 
-skorComputer = 'Skor: ' + initSkorComputer
-skorPlayer = 'Skor: ' + initSkorPlayer
-
-// function scoring() {
-//     setTimeout(() => {
-//         if ('MENANG!'){
-//             initSkorPlayer++
-//             skorPlayer.innerHTML =''
-//             skorPlayer.innerHTML = 'Skor : ' + initSkorPlayer
-//         }
-//         if (result == 'KALAH!'){
-//             initSkorComputer++
-//             skorComputer.innerHTML =''
-//             skorComputer.innerHTML = 'Skor : ' + initSkorComputer
-//         }
-//     }, 1202);
-// }
-
 const pilihan = document.querySelectorAll('li img');
 pilihan.forEach(function(pil) {
     pil.addEventListener('click', function () {
@@ -67,8 +52,22 @@ pilihan.forEach(function(pil) {
             const info = document.querySelector('.info');
             info.innerHTML = hasil;
         }, 1200);
-
-        // scoring()
+        
+        function scoring() {
+            setTimeout(() => {
+                if (hasil == w){
+                    initSkorPlayer++
+                    skorPlayer.innerHTML = 'Skor Kamu : ' + initSkorPlayer
+                    skorComputer.innerHTML = 'Skor BOT : ' + initSkorComputer
+                }
+                if (hasil == l){
+                    initSkorComputer++
+                    skorComputer.innerHTML = 'Skor BOT : ' + initSkorComputer
+                    skorPlayer.innerHTML = 'Skor Kamu: ' + initSkorPlayer
+                }
+            }, 1202);
+        }
+        scoring()
     })
 })
 
